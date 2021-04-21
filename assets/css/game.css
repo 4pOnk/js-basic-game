@@ -1,0 +1,126 @@
+/*
+ * HUD
+ */
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background: url("../img/hud-bg.png");
+    padding: 0 32px;
+}
+.hud .left, .hud .right {
+    display: flex;
+    align-items: center;
+}
+.hud .left > * {
+    margin-right: 32px;
+}
+
+/*
+ * Heart progress
+ */
+.heart-progress {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    background: #53221e;
+    color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 4px;
+    z-index: 9998;
+}
+.heart-progress .filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: #ff4646;
+    z-index: 0;
+    transition: width .15s ease;
+}
+.heart-progress .text {
+    z-index: 2;
+}
+
+/*
+ * Game container
+ */
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100vh;
+}
+
+/*
+ * Game field
+ */
+.field {
+    background: #2b2f29;
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+}
+.field:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .3), transparent);
+    pointer-events: none;
+    z-index: 100;
+}
+
+/*
+ * Cells
+ */
+.cell {
+    position: absolute;
+    display: block;
+    width: 64px;
+    height: 64px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.cell.player {
+    background-image: url('../img/player.png');
+}
+.cell.stone {
+    background-image: url('../img/stone.png');
+}
+.cell.ground {
+    background-image: url('../img/ground.png');
+}
+.cell.heart {
+    background-image: url('../img/heart-in-stone.svg');
+}
+
+
+
+/*
+ * Field overlay
+ */
+.field-overlay {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: calc(100% * 2);
+    height: calc(100% * 2);
+    z-index: 999;
+    pointer-events: none;
+    transition: transform .3s ease;
+    transform: translate(32px, 32px);
+}
+
+
+

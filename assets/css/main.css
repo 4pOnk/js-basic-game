@@ -1,0 +1,165 @@
+/* CSS reset */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+/* Body styles */
+body {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 18px;
+    overflow: hidden;
+    background: #333333;
+}
+
+/*
+ * Utilities
+ */
+.tac {
+    text-align: center;
+}
+
+/*
+ * Emoji
+ */
+.emoji {
+    height: 1.5em;
+    margin-bottom: -0.3em;
+    margin-right: 0.2em;
+}
+
+
+
+/*
+ * Screen styles
+ */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/*
+ * Lightbox
+ */
+.box-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, .3);
+    color: #fff;
+    transition: opacity .15s ease;
+}
+.box-wrapper.active, .active .box-wrapper {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.box {
+    transform: translateY(-50px) scale(1.1);
+    transition: transform .15s ease;
+}
+.box.white {
+    border-radius: 8px;
+    padding: 32px;
+    background: #FFFFFF;
+    color: #000;
+    box-shadow: rgba(0, 0, 0, .7) 0 4px 16px;
+}
+.box-wrapper.active .box, .active .box-wrapper .box {
+    transform: translateY(0) scale(1);
+}
+
+/*
+ * Forms
+ */
+input {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background: #eeeeee;
+    font: inherit;
+    padding: 8px 12px;
+    transition: background-color .15s ease;
+}
+input:focus {
+    outline: none;
+    background-color: #e0e0e0;
+}
+
+button {
+    border: 2px solid #752c2e;
+    border-radius: 4px;
+    background: #aa483e;
+    color: #fff;
+    font: inherit;
+    padding: 8px 12px;
+    transition: background-color .15s ease, opacity .15s ease;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #bf653e;
+}
+button:focus {
+    outline: none;
+}
+button:disabled {
+    opacity: .3;
+    pointer-events: none;
+}
+form .hint {
+    opacity: .5;
+    margin-bottom: 8px;
+}
+
+
+
+/*
+ * Screens
+ */
+.game {
+    transition: transform .15s ease, filter .15s ease;
+}
+body.screen-shown .game {
+    filter: blur(16px);
+    transform: scale(1.02);
+}
+body.screen-shown[data-screen='loss'] .game {
+    transform: scale(2);
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(0, 0.39, 0.35, 0.96);
+}
+
+#screenWelcome .logo, #screenRating .logo, #screenLoss .logo {
+    margin-bottom: 16px;
+}
+#screenWelcome h1, #screenRating h1, #screenLoss h1 {
+    margin-bottom: 8px;
+}
+#screenRating h1, #screenLoss h1 {
+    font-size: 48px;
+}
+#screenWelcome p, #screenRating p, #screenLoss p {
+    margin-bottom: 24px;
+}
+#screenWelcome p {
+    max-width: 5in;
+}
+
+
+
+

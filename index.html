@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Title -->
+    <title>LifeSaver</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/game.css">
+</head>
+<body>
+
+<!-- Welcome screen -->
+<div class="screen tac" id="screenWelcome">
+    <div class="box-wrapper active">
+        <div class="box white">
+            <img src="assets/img/logo.svg" alt="Logo" class="logo">
+
+            <h1>LifeSaver</h1>
+            <p>A game about the doctor who saves lives of ill people after a earthquake by collecting hearts in dangerous caves</p>
+
+            <form id="welcomeForm" action="#">
+                <div class="hint">Please, enter your username here</div>
+                <input type="text" placeholder="Username" required autofocus id="username">
+                <button type="submit" disabled id="startBtn">Start</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Rating screen -->
+<div class="screen tac" id="screenRating">
+    <div class="box-wrapper">
+        <div class="box">
+            <img src="assets/img/logo.svg" alt="LifeSaver" class="logo">
+            <h1>Good job!</h1>
+            <p>You finished this game!</p>
+
+            <button class="start-over">Start over</button>
+        </div>
+    </div>
+</div>
+
+<!-- Loss (death) screen -->
+<div class="screen tac" id="screenLoss">
+    <div class="box-wrapper">
+        <div class="box">
+            <img src="assets/img/skull.png" alt="Skull" class="logo">
+            <h1>Game over!</h1>
+            <p>You squished under the stone and lost all your hearts.</p>
+
+            <button class="start-over">Start over</button>
+        </div>
+    </div>
+</div>
+
+<!-- Main game container -->
+<div class="game">
+    <!-- HUD (panel where you can find some stats) -->
+    <div class="hud">
+        <!-- The left part with logo, username and time -->
+        <div class="left">
+            <img src="assets/img/logo.png" alt="LifeSaver" class="logo">
+            <div>
+                <img src="assets/img/user.png" alt="Username: " class="emoji">
+                <span id="hudUsername">_</span>
+            </div>
+            <div>
+                <img src="assets/img/clock.png" alt="Time: " class="emoji">
+                <span id="hudTime">00:00</span>
+            </div>
+        </div>
+        <!-- The right part with hearts count -->
+        <div class="right">
+            <div class="heart-progress">
+                <div class="filled"></div>
+                <div class="text">
+                    <img src="assets/img/heart.png" alt="Heart" class="emoji">
+                    <span id="hudHearts"><span id="heartsDiv">0</span>/10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Game field (where all blocks, or cells, are contained) -->
+    <div class="field">
+        <!-- Cell is defined by a "cell" class and sprite modifier ("player", "ground", etc.) -->
+        <div class="field-overlay" style="transform: translate(32px, 32px) scale(1); --fade-max:1;"></div>
+        <canvas id="canvas"></canvas>
+    </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
